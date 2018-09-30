@@ -3,22 +3,22 @@
   <Class Name="Mensageiro.Dominio.Entidades.Mensagem">
     <Position X="1" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAEAAA=</HashCode>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAAgAAAgAAAAAAAAAAAEQAA=</HashCode>
       <FileName>Entidades\Mensagem.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Usuario" />
+      <Property Name="Destinatario" />
+      <Property Name="Remetente" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Mensageiro.Dominio.Entidades.Usuario">
-    <Position X="1" Y="3.25" Width="1.5" />
+    <Position X="4" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAEIAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAEAAAA=</HashCode>
       <FileName>Entidades\Usuario.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="Mensagens" />
-      <Property Name="Contatos" />
     </ShowAsCollectionAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />

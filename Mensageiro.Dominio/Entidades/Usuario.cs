@@ -6,7 +6,6 @@ namespace Mensageiro.Dominio.Entidades
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public List<Usuario> Contatos { get; set; }
-        public List<Mensagem> Mensagens { get; set; }
+        public virtual List<Mensagem> Mensagens { get; set; }
     }
 }

@@ -49,11 +49,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MensageiroDbContext.cs" />
+    <Compile Include="MensageiroUnitOfWork.cs" />
+    <Compile Include="ModelConfiguration\MensagemConfiguration.cs" />
+    <Compile Include="ModelConfiguration\UsuarioConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsuarioRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mensageiro.Dominio\Mensageiro.Dominio.csproj">
+      <Project>{743B56A1-90EF-4BA1-851E-2A825C9314AE}</Project>
+      <Name>Mensageiro.Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
