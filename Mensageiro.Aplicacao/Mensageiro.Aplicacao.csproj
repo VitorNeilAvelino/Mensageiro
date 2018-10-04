@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{743B56A1-90EF-4BA1-851E-2A825C9314AE}</ProjectGuid>
+    <ProjectGuid>{9E413DBF-8DB7-48DE-B245-5A4C90B732A3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mensageiro.Dominio</RootNamespace>
-    <AssemblyName>Mensageiro.Dominio</AssemblyName>
+    <RootNamespace>Mensageiro.Aplicacao</RootNamespace>
+    <AssemblyName>Mensageiro.Aplicacao</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,14 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidades\Mensagem.cs" />
-    <Compile Include="Entidades\Usuario.cs" />
-    <Compile Include="Interfaces\IMensageiroUnitOfWork.cs" />
-    <Compile Include="Interfaces\IUsuarioRepositorio.cs" />
+    <Compile Include="UsuarioAplicacao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Entidades\Mensageiro.cd" />
+    <ProjectReference Include="..\Mensageiro.Dominio\Mensageiro.Dominio.csproj">
+      <Project>{743B56A1-90EF-4BA1-851E-2A825C9314AE}</Project>
+      <Name>Mensageiro.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mensageiro.Repositorios.SqlServer\Mensageiro.Repositorios.SqlServer.csproj">
+      <Project>{0E5AA7B7-63FF-4F57-A02A-AADB29ED5974}</Project>
+      <Name>Mensageiro.Repositorios.SqlServer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
