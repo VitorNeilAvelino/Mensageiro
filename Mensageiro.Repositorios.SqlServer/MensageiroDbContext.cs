@@ -1,6 +1,7 @@
 ﻿using Mensageiro.Dominio.Entidades;
 using Mensageiro.Repositorios.SqlServer.ModelConfiguration;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Mensageiro.Repositorios.SqlServer
 {
@@ -16,6 +17,8 @@ namespace Mensageiro.Repositorios.SqlServer
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             modelBuilder.Configurations.Add(new UsuarioConfiguration());
             modelBuilder.Configurations.Add(new MensagemConfiguration());
