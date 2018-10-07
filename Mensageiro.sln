@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mensageiro.Repositorios.Sql
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mensageiro.Aplicacao", "Mensageiro.Aplicacao\Mensageiro.Aplicacao.csproj", "{9E413DBF-8DB7-48DE-B245-5A4C90B732A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mensageiro.AspNet", "Mensageiro.AspNet\Mensageiro.AspNet.csproj", "{B0A1D3F4-48ED-46F4-A044-2144505B6D87}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{9E413DBF-8DB7-48DE-B245-5A4C90B732A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E413DBF-8DB7-48DE-B245-5A4C90B732A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E413DBF-8DB7-48DE-B245-5A4C90B732A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0A1D3F4-48ED-46F4-A044-2144505B6D87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0A1D3F4-48ED-46F4-A044-2144505B6D87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0A1D3F4-48ED-46F4-A044-2144505B6D87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0A1D3F4-48ED-46F4-A044-2144505B6D87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
