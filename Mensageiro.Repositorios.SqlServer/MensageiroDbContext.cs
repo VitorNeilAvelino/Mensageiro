@@ -13,6 +13,7 @@ namespace Mensageiro.Repositorios.SqlServer
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Mensagem> Mensagens { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

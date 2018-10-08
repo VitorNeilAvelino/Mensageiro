@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Mensageiro.Dominio.Interfaces;
+using Mensageiro.Repositorios.SqlServer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +10,19 @@ namespace Mensageiro.AspNet.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly MensageiroDbContext db = new MensageiroDbContext();
+
+        //private readonly IMensageiroUnitOfWork db;
+
+        //public HomeController(IMensageiroUnitOfWork db)
+        //{
+        //    this.
+        //}
+
         public ActionResult Index()
         {
+            var usuarios = db.Usuarios.ToList();
+
             return View();
         }
 

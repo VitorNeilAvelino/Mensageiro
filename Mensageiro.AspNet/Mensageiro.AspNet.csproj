@@ -282,6 +282,20 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mensageiro.Aplicacao\Mensageiro.Aplicacao.csproj">
+      <Project>{9e413dbf-8db7-48de-b245-5a4c90b732a3}</Project>
+      <Name>Mensageiro.Aplicacao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mensageiro.Dominio\Mensageiro.Dominio.csproj">
+      <Project>{743b56a1-90ef-4ba1-851e-2a825c9314ae}</Project>
+      <Name>Mensageiro.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mensageiro.Repositorios.SqlServer\Mensageiro.Repositorios.SqlServer.csproj">
+      <Project>{0e5aa7b7-63ff-4f57-a02a-aadb29ed5974}</Project>
+      <Name>Mensageiro.Repositorios.SqlServer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
