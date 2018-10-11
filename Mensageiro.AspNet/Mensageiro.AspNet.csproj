@@ -200,6 +200,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810110102507_Inicial.cs" />
+    <Compile Include="Migrations\201810110102507_Inicial.Designer.cs">
+      <DependentUpon>201810110102507_Inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -295,6 +300,11 @@
       <Project>{0e5aa7b7-63ff-4f57-a02a-aadb29ed5974}</Project>
       <Name>Mensageiro.Repositorios.SqlServer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201810110102507_Inicial.resx">
+      <DependentUpon>201810110102507_Inicial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

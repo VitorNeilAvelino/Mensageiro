@@ -50,6 +50,11 @@
   <ItemGroup>
     <Compile Include="MensageiroDbContext.cs" />
     <Compile Include="MensageiroUnitOfWork.cs" />
+    <Compile Include="Migrations\201810110121559_Inicial.cs" />
+    <Compile Include="Migrations\201810110121559_Inicial.Designer.cs">
+      <DependentUpon>201810110121559_Inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelConfiguration\MensagemConfiguration.cs" />
     <Compile Include="ModelConfiguration\UsuarioConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,6 +69,11 @@
       <Project>{743B56A1-90EF-4BA1-851E-2A825C9314AE}</Project>
       <Name>Mensageiro.Dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201810110121559_Inicial.resx">
+      <DependentUpon>201810110121559_Inicial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
 ﻿using Mensageiro.Dominio.Entidades;
+using Mensageiro.Repositorios.SqlServer.Migrations;
 using Mensageiro.Repositorios.SqlServer.ModelConfiguration;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -9,7 +10,7 @@ namespace Mensageiro.Repositorios.SqlServer
     {
         public MensageiroDbContext() : base("mensageiroSqlServer")
         {
-            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MensageiroDbContext>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MensageiroDbContext, Configuration>());
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
