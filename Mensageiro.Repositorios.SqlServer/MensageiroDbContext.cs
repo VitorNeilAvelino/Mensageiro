@@ -9,7 +9,7 @@ namespace Mensageiro.Repositorios.SqlServer
     {
         public MensageiroDbContext() : base("mensageiroSqlServer")
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MensageiroDbContext>());
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MensageiroDbContext>());
         }
 
         public DbSet<Usuario> Usuarios { get; set; }

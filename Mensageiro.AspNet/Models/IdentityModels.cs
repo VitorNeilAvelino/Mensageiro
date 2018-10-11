@@ -29,7 +29,7 @@ namespace Mensageiro.AspNet.Models
         public ApplicationDbContext()
             : base("mensageiroSqlServer", throwIfV1Schema: false)
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ApplicationDbContext>());
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }
 
         public static ApplicationDbContext Create()
