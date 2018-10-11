@@ -9,13 +9,13 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Mensageiro.AspNet.Models
 {
-    public class ApplicationUser : IdentityUser
+    public class MensageiroIdentityUser : IdentityUser
     {
         [Required]
         [MaxLength(200)]
         public string Nome { get; set; }
 
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<MensageiroIdentityUser> manager)
         {
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             
@@ -25,18 +25,16 @@ namespace Mensageiro.AspNet.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class IdentityDbContext : IdentityDbContext<MensageiroIdentityUser>
     {
-        public ApplicationDbContext()
-            : base("mensageiroSqlServer", throwIfV1Schema: false)
+        public IdentityDbContext() : base("mensageiroSqlServer", throwIfV1Schema: false)
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
-            //Database.SetInitializer<ApplicationDbContext>(null);
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<IdentityDbContext, Configuration>());
         }
 
-        public static ApplicationDbContext Create()
+        public static IdentityDbContext Create()
         {
-            return new ApplicationDbContext();
+            return new IdentityDbContext();
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -45,7 +43,7 @@ namespace Mensageiro.AspNet.Models
 
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            modelBuilder.Entity<ApplicationUser>().ToTable("Usuario");
+            modelBuilder.Entity<MensageiroIdentityUser>().ToTable("Usuario");
             modelBuilder.Entity<IdentityRole>().ToTable("Perfil");
             modelBuilder.Entity<IdentityUserRole>().ToTable("UsuarioPerfis");
             modelBuilder.Entity<IdentityUserLogin>().ToTable("UsuarioLogins");

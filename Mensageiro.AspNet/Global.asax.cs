@@ -14,7 +14,7 @@ namespace Mensageiro.AspNet
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            new ApplicationDbContext().Database.Initialize(false);
+            new IdentityDbContext().Database.Initialize(false);
         }
     }
 }
