@@ -2,9 +2,9 @@
 
 namespace Mensageiro.AspNet.Controllers
 {
+    [Authorize]
     public class MensageiroController : Controller
     {
-        [Authorize]
         public ActionResult Index()
         {
             return View();
