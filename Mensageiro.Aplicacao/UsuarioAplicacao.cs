@@ -1,5 +1,6 @@
 ﻿using Mensageiro.Dominio.Entidades;
 using Mensageiro.Dominio.Interfaces;
+using Mensageiro.Repositorios.SqlServer;
 using System;
 using System.Collections.Generic;
 
@@ -14,9 +15,14 @@ namespace Mensageiro.Aplicacao
             db = mensageiroUnitOfWork;
         }
 
-        public List<Usuario> Obter()
+        public UsuarioAplicacao()
         {
-            return db.Usuarios.Obter();
+            db = new MensageiroUnitOfWork();
+        }
+
+        public List<Usuario> ObterContatos(string id)
+        {
+            return db.Usuarios.ObterContatos(id);
         }
 
         public void Dispose()

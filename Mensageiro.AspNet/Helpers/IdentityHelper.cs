@@ -9,5 +9,10 @@ namespace Mensageiro.AspNet.Helpers
         {
             return ((ClaimsIdentity)identity).FindFirst("Nome").Value;
         }
+
+        public static string ObterId(this IIdentity identity)
+        {
+            return ((ClaimsIdentity)identity).FindFirst(ClaimTypes.NameIdentifier).Value;
+        }
     }
 }

@@ -14,9 +14,9 @@ namespace Mensageiro.Repositorios.SqlServer
             contexto = mensageiroDbContext;
         }
 
-        public List<Usuario> Obter()
+        public List<Usuario> ObterContatos(string id)
         {
-            return contexto.Usuarios.ToList();
+            return contexto.Usuarios.Where(u => u.Id != id).ToList();
         }
     }
 }
