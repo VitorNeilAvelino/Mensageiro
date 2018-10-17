@@ -36,8 +36,8 @@
                             <div class="contato-box sideBar-body">
                                 <div class="box-avatar avatar-icon"><img data-bind="attr:{src: 'https://api.adorable.io/avatars/50/' + id}"></div>
                                 <div class="box-nome sideBar-name"><span class="name-meta" data-bind="text: nome" /></div>
-                                <div class="box-horario sideBar-time"><span class="time-meta pull-right" data-bind="text: ultimaMensagem.horario" /></div>
-                                <div class="box-mensagem"><span class="mensagem-meta" data-bind="text: ultimaMensagem.conteudo" /></div>
+                                <div class="box-horario sideBar-time"><span class="time-meta pull-right" data-bind="text: $data.horarioUltimaMensagem" /></div>
+                                <div class="box-mensagem"><span class="mensagem-meta" data-bind="text: conteudoUltimaMensagem" /></div>
                             </div>
                         </div>
                     </div>
@@ -94,6 +94,7 @@
         </div>
     </div>
     <script src="~/Scripts/knockout-3.4.2.js"></script>
+    @* ToDo: demonstração *@
     <script type="text/javascript" src="~/Scripts/Mensageiro/index.js"></script>
 </body>
 </html>

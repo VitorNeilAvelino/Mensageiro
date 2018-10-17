@@ -1,7 +1,10 @@
 ﻿const usuariosViewModel = {
-    usuarios: [
-        { nome: 'Sílvia', id: 1927, ultimaMensagem: { horario: '19:57', conteudo: 'Olá!' } },
-        { nome: 'Chu', id: 1931, ultimaMensagem: { horario: '19:58', conteudo: 'Oi!' } }]
+    usuarios: []
 };
 
-ko.applyBindings(usuariosViewModel);
+$.ajax({
+    url: "/mensageiro/contatos"
+}).done(function (response) {
+    usuariosViewModel.usuarios = response;
+    ko.applyBindings(usuariosViewModel);
+});

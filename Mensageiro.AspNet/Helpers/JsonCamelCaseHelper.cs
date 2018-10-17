@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web.Mvc;
-using Mensageiro.Dominio.Entidades;
+﻿using System.Web.Mvc;
 
 namespace Mensageiro.AspNet.Helpers
 {

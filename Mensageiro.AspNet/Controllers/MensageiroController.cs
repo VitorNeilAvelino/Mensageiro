@@ -17,9 +17,7 @@ namespace Mensageiro.AspNet.Controllers
         [ActionName("Contatos")]
         public ActionResult ObterContatos()
         {
-            var contatos = usuarioAplicacao.ObterContatos(User.Identity.ObterId());
-
-            return  this.JsonCamelCase(contatos);
+            return this.JsonCamelCase(usuarioAplicacao.ObterContatos(User.Identity.ObterId()));
         }
 
         protected override void Dispose(bool disposing)
