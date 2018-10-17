@@ -20,7 +20,7 @@ namespace Mensageiro.Aplicacao
             db = new MensageiroUnitOfWork();
         }
 
-        public List<Usuario> ObterContatos(string id)
+        public List<ContatoReadModel> ObterContatos(string id)
         {
             return db.Usuarios.ObterContatos(id);
         }

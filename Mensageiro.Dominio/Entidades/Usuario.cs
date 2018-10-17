@@ -1,10 +1,9 @@
-﻿using Mensageiro.Dominio.Entidades.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Mensageiro.Dominio.Entidades
 {
-    public class Usuario// : IUsuario
+    public class Usuario
     {
         public Usuario()
         {
@@ -37,6 +36,6 @@ namespace Mensageiro.Dominio.Entidades
 
         public string Nome { get; set; }
 
-        //public virtual List<Mensagem> Mensagens { get; set; }
+        public List<Conversa> Conversas { get; set; }
     }
 }

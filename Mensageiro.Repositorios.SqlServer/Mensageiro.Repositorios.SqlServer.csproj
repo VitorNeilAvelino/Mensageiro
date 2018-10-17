@@ -54,6 +54,10 @@
     <Compile Include="Migrations\201810110121559_Inicial.Designer.cs">
       <DependentUpon>201810110121559_Inicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810160025218_AdicionarEntidadeConversa.cs" />
+    <Compile Include="Migrations\201810160025218_AdicionarEntidadeConversa.Designer.cs">
+      <DependentUpon>201810160025218_AdicionarEntidadeConversa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelConfiguration\MensagemConfiguration.cs" />
     <Compile Include="ModelConfiguration\UsuarioConfiguration.cs" />
@@ -73,6 +77,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201810110121559_Inicial.resx">
       <DependentUpon>201810110121559_Inicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810160025218_AdicionarEntidadeConversa.resx">
+      <DependentUpon>201810160025218_AdicionarEntidadeConversa.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

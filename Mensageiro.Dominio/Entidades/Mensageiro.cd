@@ -1,24 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Mensageiro.Dominio.Entidades.Mensagem">
-    <Position X="1" Y="1.25" Width="1.5" />
+    <Position X="1" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAABAAAAAAAAAAAAAAAAAgAAAgAAAAAAAAAAAEQAA=</HashCode>
+      <HashCode>AAACABAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAEQAA=</HashCode>
       <FileName>Entidades\Mensagem.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Destinatario" />
       <Property Name="Remetente" />
+      <Property Name="Destinatario" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Mensageiro.Dominio.Entidades.Usuario">
-    <Position X="4" Y="1.25" Width="1.5" />
+    <Position X="4" Y="3.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AACCAAAAgCAAIEAAAAAAQAABAAAAAAAIAQQAABEAAQA=</HashCode>
       <FileName>Entidades\Usuario.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
-      <Property Name="Mensagens" />
+      <Property Name="Conversas" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Mensageiro.Dominio.Entidades.Conversa">
+    <Position X="4" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAABAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entidades\Conversa.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Interlocutores" />
+      <Property Name="Mensagems" />
     </ShowAsCollectionAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />

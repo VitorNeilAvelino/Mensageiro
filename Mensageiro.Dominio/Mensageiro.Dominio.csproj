@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\ContatoReadModel.cs" />
+    <Compile Include="Entidades\Conversa.cs" />
     <Compile Include="Interfaces\IUsuario.cs" />
     <Compile Include="Entidades\Mensagem.cs" />
     <Compile Include="Entidades\Usuario.cs" />

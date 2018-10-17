@@ -14,7 +14,8 @@ namespace Mensageiro.Repositorios.SqlServer
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
-        public DbSet<Mensagem> Mensagens { get; set; }
+        //public DbSet<Mensagem> Mensagens { get; set; }
+        public DbSet<Conversa> Conversas { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

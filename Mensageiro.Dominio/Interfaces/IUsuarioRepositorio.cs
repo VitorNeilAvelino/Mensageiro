@@ -5,6 +5,6 @@ namespace Mensageiro.Dominio.Interfaces
 {
     public interface IUsuarioRepositorio
     {
-        List<Usuario> ObterContatos(string id);
+        List<ContatoReadModel> ObterContatos(string id);
     }
 }
