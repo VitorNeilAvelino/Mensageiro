@@ -34,58 +34,66 @@
                         </div>
                         <div class="row sideBar" data-bind="foreach: usuarios">
                             <div class="contato-box sideBar-body">
-                                <div class="box-avatar avatar-icon"><img data-bind="attr:{src: 'https://api.adorable.io/avatars/50/' + id}"></div>
-                                <div class="box-nome sideBar-name"><span class="name-meta" data-bind="text: nome" /></div>
-                                <div class="box-horario sideBar-time"><span class="time-meta pull-right" data-bind="text: $data.horarioUltimaMensagem" /></div>
-                                <div class="box-mensagem"><span class="mensagem-meta" data-bind="text: conteudoUltimaMensagem" /></div>
+                                <div class="box-avatar avatar-icon">
+                                    <img data-bind="attr:{src: 'https://api.adorable.io/avatars/50/' + id}">
+                                </div>
+                                <div class="box-nome sideBar-name">
+                                    <span class="name-meta" data-bind="text: nome" />
+                                </div>
+                                <div class="box-horario sideBar-time">
+                                    <span class="time-meta pull-right" data-bind="text: $data.horarioUltimaMensagem" />
+                                </div>
+                                <div class="box-mensagem">
+                                    <span class="mensagem-meta" data-bind="text: conteudoUltimaMensagem" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-8 conversation">
                     <div class="row heading">
-                        <div class="col-sm-2 col-md-1 col-xs-3 heading-avatar">
-                            <div class="heading-avatar-icon">
-                                <img src="https://api.adorable.io/avatars/40/Silvia">
+                        @*<div class="col-sm-2 col-md-1 col-xs-3 heading-avatar">
+                                <div class="heading-avatar-icon">
+                                    <img src="https://api.adorable.io/avatars/40/Silvia">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-8 col-xs-7 heading-name">
-                            <span class="heading-name-meta">
-                                John Doe
-                            </span>
-                        </div>
+                            <div class="col-sm-8 col-xs-7 heading-name">
+                                <span class="heading-name-meta">
+                                    John Doe
+                                </span>
+                            </div>*@
                     </div>
                     <div class="row message" id="conversation">
-                        <div class="row message-body">
-                            <div class="col-sm-12 message-main-receiver">
-                                <div class="receiver">
-                                    <div class="message-text">
-                                        Hi, what are you doing?!
+                        @*<div class="row message-body">
+                                <div class="col-sm-12 message-main-receiver">
+                                    <div class="receiver">
+                                        <div class="message-text">
+                                            Hi, what are you doing?!
+                                        </div>
+                                        <span class="message-time pull-right">
+                                            Sun
+                                        </span>
                                     </div>
-                                    <span class="message-time pull-right">
-                                        Sun
-                                    </span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row message-body">
-                            <div class="col-sm-12 message-main-sender">
-                                <div class="sender">
-                                    <div class="message-text">
-                                        I am doing nothing man!
+                            <div class="row message-body">
+                                <div class="col-sm-12 message-main-sender">
+                                    <div class="sender">
+                                        <div class="message-text">
+                                            I am doing nothing man!
+                                        </div>
+                                        <span class="message-time pull-right">
+                                            Sun
+                                        </span>
                                     </div>
-                                    <span class="message-time pull-right">
-                                        Sun
-                                    </span>
                                 </div>
-                            </div>
-                        </div>
+                            </div>*@
                     </div>
                     <div class="row reply">
-                        <div class="col-sm-9 col-xs-9 reply-main">
+                        <div class="col-md-11 col-xs-9 reply-main">
                             <textarea class="form-control" rows="1" id="comment"></textarea>
                         </div>
-                        <div class="col-sm-1 col-xs-1 reply-send">
+                        <div class="col-md-1 col-xs-1 reply-send">
                             <i class="fa fa-send fa-2x" aria-hidden="true"></i>
                         </div>
                     </div>
