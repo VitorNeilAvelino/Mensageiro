@@ -1,12 +1,12 @@
 ﻿const contatosViewModel = {
-    contatos: []
+    contatos: ko.observableArray() 
 };
 
 $.ajax({
     url: "/mensageiro/contatos"
 })
     .then(function (response) {
-        contatosViewModel.contatos = response;
+        contatosViewModel.contatos(response);
         ko.applyBindings(contatosViewModel);
     })
-    .catch(function () { /*Tratamento do erro;*/ });
+    .catch(function (erro) { /*Tratamento do erro*/});
