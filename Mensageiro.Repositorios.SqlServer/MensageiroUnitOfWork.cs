@@ -6,7 +6,7 @@ namespace Mensageiro.Repositorios.SqlServer
     public class MensageiroUnitOfWork : IDisposable, IMensageiroUnitOfWork
     {
         private MensageiroDbContext dbContext = new MensageiroDbContext();
-        private UsuarioRepositorio usuarios;
+        private IUsuarioRepositorio usuarios;
 
         public IUsuarioRepositorio Usuarios { get { return usuarios ?? (usuarios = new UsuarioRepositorio(dbContext)); } }
 
