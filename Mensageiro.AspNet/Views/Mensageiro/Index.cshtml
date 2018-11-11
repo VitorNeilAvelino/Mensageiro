@@ -32,8 +32,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row sideBar" data-bind="foreach: contatos">
-                            <div class="contato-box sideBar-body">
+                        <div class="row sideBar" data-bind="foreach: contatos" id="contatosDiv">
+                            <div class="contato-box sideBar-body" data-bind="click: $parent.exibirDestinatario, css: {contatoSelecionado: selecionado}">
                                 <div class="box-avatar avatar-icon">
                                     <img data-bind="attr:{src: 'https://api.adorable.io/avatars/50/' + id}">
                                 </div>
@@ -51,17 +51,15 @@
                     </div>
                 </div>
                 <div class="col-sm-8 conversation">
-                    <div class="row heading">
-                        @*<div class="col-sm-2 col-md-1 col-xs-3 heading-avatar">
-                                <div class="heading-avatar-icon">
-                                    <img src="https://api.adorable.io/avatars/40/Silvia">
-                                </div>
+                    <div class="row heading"id="destinatario">
+                        <div class="col-sm-2 col-md-1 col-xs-3 heading-avatar">
+                            <div class="heading-avatar-icon">
+                                <img data-bind="attr:{src: 'https://api.adorable.io/avatars/50/' + destinatarioId}">
                             </div>
-                            <div class="col-sm-8 col-xs-7 heading-name">
-                                <span class="heading-name-meta">
-                                    John Doe
-                                </span>
-                            </div>*@
+                        </div>
+                        <div class="col-sm-8 col-xs-7 heading-name">
+                            <span class="heading-name-meta" data-bind="text: destinatarioNome" />
+                        </div>
                     </div>
                     <div class="row message" id="conversation">
                         @*<div class="row message-body">
@@ -91,7 +89,7 @@
                     </div>
                     <div class="row reply">
                         <div class="col-md-11 col-xs-9 reply-main">
-                            <input type="text" class="form-control" id="comment"/>
+                            <input type="text" class="form-control" id="comment" />
                         </div>
                         <div class="col-md-1 col-xs-1 reply-send">
                             <i class="fa fa-send fa-2x" aria-hidden="true"></i>
