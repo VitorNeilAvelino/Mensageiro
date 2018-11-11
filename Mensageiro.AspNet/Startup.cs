@@ -1,7 +1,7 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(Mensageiro.AspNet.Startup))]
+[assembly: OwinStartup(typeof(Mensageiro.AspNet.Startup))]
 namespace Mensageiro.AspNet
 {
     public partial class Startup
@@ -9,6 +9,7 @@ namespace Mensageiro.AspNet
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            app.MapSignalR();
         }
     }
 }
