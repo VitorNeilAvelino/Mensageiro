@@ -35,5 +35,15 @@ namespace Mensageiro.Repositorios.SqlServer
                 })
                 .ToList();
         }
+
+        public List<Mensagem> ObterMensagens(string userIdentity, string destinatarioId)
+        {
+            return contexto.Conversas
+                .SelectMany(c => c.Mensagems)
+                .Where(m => m.Remetente.Id == userIdentity && m.Destinatario.Id == destinatarioId
+                    || m.Remetente.Id == destinatarioId && m.Destinatario.Id == userIdentity)
+                .OrderBy(c => c.Horario)
+                .ToList();
+        }
     }
 }

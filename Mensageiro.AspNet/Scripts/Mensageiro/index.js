@@ -44,7 +44,7 @@ function conectarUsuarioHub() {
     connection.start();
 }
 
-//function obterConversa(remetente, destinatario) {
+//function obterConversa(destinatario) {
 //    $.ajax({
 //        url: "/mensageiro/conversas",
 //        data: { remetente, destinatario }
