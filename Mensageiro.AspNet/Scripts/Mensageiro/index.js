@@ -10,12 +10,19 @@
         const destinatarioDiv = $("#destinatario")[0];
         ko.cleanNode(destinatarioDiv);
         ko.applyBindings(destinatarioViewModel, destinatarioDiv);
+
+        mensagensViewModel.mensagens([]);
+        obterConversa(contato.id);
     }
 };
 
 const destinatarioViewModel = {
     destinatarioNome: "",
     destinatarioId: ""
+};
+
+const mensagensViewModel = {
+    mensagens: ko.observableArray()
 };
 
 atualizarContatos();
@@ -28,7 +35,7 @@ function atualizarContatos() {
     })
         .then(function (response) {
             response.map(contato => contato.selecionado = ko.observable(false));
-            
+
             contatosViewModel.contatos(response);
             ko.applyBindings(contatosViewModel, $("#contatosDiv")[0]);
         })
@@ -44,14 +51,31 @@ function conectarUsuarioHub() {
     connection.start();
 }
 
-//function obterConversa(destinatario) {
-//    $.ajax({
-//        url: "/mensageiro/conversas",
-//        data: { remetente, destinatario }
-//    })
-//        .then(function (response) {
-//            destinatarioViewModel = response;
-//            ko.applyBindings(destinatarioViewModel);
-//        })
-//        .catch(function (erro) { /*Tratamento do erro*/ });
-//}
+function obterConversa(destinatarioId) {
+    $.ajax({
+        url: "/mensageiro/mensagens",
+        data: { destinatarioId }
+    })
+        .then(function (response) {
+            response.map(mensagem => mensagem.ehDestinatario = mensagem.destinatarioId === usuarioId);
+            response.map(mensagem => mensagem.horario = timeFormat(mensagem.horario));
+
+            mensagensViewModel.mensagens(response);
+
+            ko.applyBindings(mensagensViewModel, $("#conversation")[0]);
+        })
+        .catch(function (erro) { /*Tratamento do erro*/ });
+}
+
+function timeFormat(dataString) {
+    const data = new Date(dataString);
+
+    hours = formatTwoDigits(data.getHours());
+    minutes = formatTwoDigits(data.getMinutes());
+
+    return hours + ":" + minutes;
+}
+
+function formatTwoDigits(n) {
+    return n < 10 ? '0' + n : n;
+}

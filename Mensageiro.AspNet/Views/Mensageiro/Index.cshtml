@@ -1,4 +1,6 @@
-﻿@{ Layout = null;}
+﻿@using Mensageiro.AspNet.Helpers;
+
+@{ Layout = null;}
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +53,7 @@
                     </div>
                 </div>
                 <div class="col-sm-8 conversation">
-                    <div class="row heading"id="destinatario">
+                    <div class="row heading" id="destinatario">
                         <div class="col-sm-2 col-md-1 col-xs-3 heading-avatar">
                             <div class="heading-avatar-icon">
                                 <img data-bind="attr:{src: 'https://api.adorable.io/avatars/50/' + destinatarioId}">
@@ -61,31 +63,17 @@
                             <span class="heading-name-meta" data-bind="text: destinatarioNome" />
                         </div>
                     </div>
-                    <div class="row message" id="conversation">
-                        @*<div class="row message-body">
-                                <div class="col-sm-12 message-main-receiver">
-                                    <div class="receiver">
-                                        <div class="message-text">
-                                            Hi, what are you doing?!
-                                        </div>
-                                        <span class="message-time pull-right">
-                                            Sun
-                                        </span>
+                    <div class="row message" id="conversation" data-bind="foreach: mensagens">
+                        <div class="row message-body">
+                            <div class="col-sm-12" data-bind="css: {destinatarioMensagem: ehDestinatario, remetenteMensagem: !ehDestinatario}">
+                                <div data-bind="css: {receiver: ehDestinatario, sender: !ehDestinatario}">
+                                    <div class="message-text">
+                                        <span data-bind="text: conteudo" />
                                     </div>
+                                    <span class="message-time pull-right" data-bind="text: horario" />
                                 </div>
                             </div>
-                            <div class="row message-body">
-                                <div class="col-sm-12 message-main-sender">
-                                    <div class="sender">
-                                        <div class="message-text">
-                                            I am doing nothing man!
-                                        </div>
-                                        <span class="message-time pull-right">
-                                            Sun
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>*@
+                        </div>
                     </div>
                     <div class="row reply">
                         <div class="col-md-11 col-xs-9 reply-main">
@@ -101,6 +89,9 @@
     </div>
     <script type="text/javascript" src="~/Scripts/knockout-3.4.2.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.signalR-2.3.0.js"></script>
+    <script type="text/javascript">
+        const usuarioId = "@User.Identity.ObterId()";
+    </script>
     <script type="text/javascript" src="~/Scripts/Mensageiro/index.js"></script>
 </body>
 </html>
