@@ -24,7 +24,7 @@ namespace Mensageiro.AspNet.Controllers
         [ActionName("Mensagens")]
         public ActionResult ObterMensagens(string destinatarioId)
         {
-            return this.JsonCamelCase(usuarioAplicacao.ObterMensagens(User.Identity.ObterId(), destinatarioId));
+            return this.JsonCamelCase(conversaAplicacao.ObterMensagens(User.Identity.ObterId(), destinatarioId));
         }
 
         [HttpPost]

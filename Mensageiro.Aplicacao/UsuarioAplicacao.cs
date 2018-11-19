@@ -29,10 +29,5 @@ namespace Mensageiro.Aplicacao
         {
             db.Dispose();
         }
-
-        public List<MensagemReadModel> ObterMensagens(string userIdentity, string destinatarioId)
-        {
-            return db.Usuarios.ObterMensagens(userIdentity, destinatarioId);
-        }
     }
 }

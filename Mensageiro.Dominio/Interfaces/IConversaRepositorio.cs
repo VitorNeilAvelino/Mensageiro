@@ -1,4 +1,5 @@
 ﻿using Mensageiro.Dominio.Entidades;
+using System.Collections.Generic;
 
 namespace Mensageiro.Dominio.Interfaces
 {
@@ -6,5 +7,6 @@ namespace Mensageiro.Dominio.Interfaces
     {
         Conversa Obter(int id);
         void Inserir(Conversa conversa);
+        List<MensagemReadModel> ObterMensagens(string userIdentity, string destinatarioId);
     }
 }

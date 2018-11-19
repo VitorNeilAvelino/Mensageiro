@@ -40,24 +40,7 @@ namespace Mensageiro.Repositorios.SqlServer
                     UsuarioId = u.Id,
                     Nome = u.Nome
                 })
-                .ToList();
-        }
-
-        public List<MensagemReadModel> ObterMensagens(string userIdentity, string destinatarioId)
-        {
-            return contexto.Conversas
-                .SelectMany(c => c.Mensagens)
-                .Where(m => m.Remetente.Id == userIdentity && m.Destinatario.Id == destinatarioId
-                    || m.Remetente.Id == destinatarioId && m.Destinatario.Id == userIdentity)
-                .OrderBy(c => c.Horario)
-                .Select(m => new MensagemReadModel
-                {
-                    Conteudo = m.Conteudo,
-                    DestinatarioId = m.Destinatario.Id,
-                    Horario = m.Horario,
-                    Id = m.Id,
-                    RemetenteId = m.Remetente.Id
-                })
+                .OrderByDescending(c => c.DataUltimaMensagem)
                 .ToList();
         }
     }

@@ -23,6 +23,11 @@ namespace Mensageiro.Aplicacao
             db = new MensageiroUnitOfWork();
         }
 
+        public List<MensagemReadModel> ObterMensagens(string userIdentity, string destinatarioId)
+        {
+            return db.Conversas.ObterMensagens(userIdentity, destinatarioId);
+        }
+
         public void AdicionarMensagem(string conteudo, int? conversaId, string remetenteId, string destinatarioId)
         {
             Conversa conversa;
