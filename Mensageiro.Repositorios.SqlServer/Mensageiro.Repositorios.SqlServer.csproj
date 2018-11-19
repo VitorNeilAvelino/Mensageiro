@@ -48,8 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConversaRepositorio.cs" />
     <Compile Include="MensageiroDbContext.cs" />
     <Compile Include="MensageiroUnitOfWork.cs" />
+    <Compile Include="MensagemRepositorio.cs" />
     <Compile Include="Migrations\201810110121559_Inicial.cs" />
     <Compile Include="Migrations\201810110121559_Inicial.Designer.cs">
       <DependentUpon>201810110121559_Inicial.cs</DependentUpon>
@@ -57,6 +59,26 @@
     <Compile Include="Migrations\201810160025218_AdicionarEntidadeConversa.cs" />
     <Compile Include="Migrations\201810160025218_AdicionarEntidadeConversa.Designer.cs">
       <DependentUpon>201810160025218_AdicionarEntidadeConversa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811161902370_MapeamentoConversaMensagem.cs" />
+    <Compile Include="Migrations\201811161902370_MapeamentoConversaMensagem.Designer.cs">
+      <DependentUpon>201811161902370_MapeamentoConversaMensagem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811191455462_MapeamentoMensagemDestinatario.cs" />
+    <Compile Include="Migrations\201811191455462_MapeamentoMensagemDestinatario.Designer.cs">
+      <DependentUpon>201811191455462_MapeamentoMensagemDestinatario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811191527206_MapeamentoMensagemDestinatarioConversa.cs" />
+    <Compile Include="Migrations\201811191527206_MapeamentoMensagemDestinatarioConversa.Designer.cs">
+      <DependentUpon>201811191527206_MapeamentoMensagemDestinatarioConversa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811191540122_MensagemDestinatarioRequiredDependent.cs" />
+    <Compile Include="Migrations\201811191540122_MensagemDestinatarioRequiredDependent.Designer.cs">
+      <DependentUpon>201811191540122_MensagemDestinatarioRequiredDependent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811191542315_MensagemDestinatarioSemRequiredDependent.cs" />
+    <Compile Include="Migrations\201811191542315_MensagemDestinatarioSemRequiredDependent.Designer.cs">
+      <DependentUpon>201811191542315_MensagemDestinatarioSemRequiredDependent.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelConfiguration\MensagemConfiguration.cs" />
@@ -80,6 +102,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810160025218_AdicionarEntidadeConversa.resx">
       <DependentUpon>201810160025218_AdicionarEntidadeConversa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811161902370_MapeamentoConversaMensagem.resx">
+      <DependentUpon>201811161902370_MapeamentoConversaMensagem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811191455462_MapeamentoMensagemDestinatario.resx">
+      <DependentUpon>201811191455462_MapeamentoMensagemDestinatario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811191527206_MapeamentoMensagemDestinatarioConversa.resx">
+      <DependentUpon>201811191527206_MapeamentoMensagemDestinatarioConversa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811191540122_MensagemDestinatarioRequiredDependent.resx">
+      <DependentUpon>201811191540122_MensagemDestinatarioRequiredDependent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811191542315_MensagemDestinatarioSemRequiredDependent.resx">
+      <DependentUpon>201811191542315_MensagemDestinatarioSemRequiredDependent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

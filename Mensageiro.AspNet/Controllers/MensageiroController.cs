@@ -8,6 +8,7 @@ namespace Mensageiro.AspNet.Controllers
     public class MensageiroController : Controller
     {
         private readonly UsuarioAplicacao usuarioAplicacao = new UsuarioAplicacao();        
+        private readonly ConversaAplicacao conversaAplicacao = new ConversaAplicacao();
 
         public ActionResult Index()
         {
@@ -24,6 +25,13 @@ namespace Mensageiro.AspNet.Controllers
         public ActionResult ObterMensagens(string destinatarioId)
         {
             return this.JsonCamelCase(usuarioAplicacao.ObterMensagens(User.Identity.ObterId(), destinatarioId));
+        }
+
+        [HttpPost]
+        [ActionName("Mensagens")]
+        public void GravarMensagem(string mensagem, int? conversaId, string remetenteId, string destinatarioId)
+        {
+            conversaAplicacao.AdicionarMensagem(mensagem, conversaId, remetenteId, destinatarioId);
         }
 
         protected override void Dispose(bool disposing)

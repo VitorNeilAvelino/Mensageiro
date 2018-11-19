@@ -14,6 +14,11 @@ namespace Mensageiro.Repositorios.SqlServer
             contexto = mensageiroDbContext;
         }
 
+        public Usuario Obter(string id)
+        {
+            return contexto.Usuarios.Find(id);
+        }
+
         public List<ContatoReadModel> ObterContatos(string id)
         {
             return contexto.Usuarios
@@ -21,16 +26,18 @@ namespace Mensageiro.Repositorios.SqlServer
                 .Select(u => new ContatoReadModel
                 {
                     ConteudoUltimaMensagem = u.Conversas
-                            .SelectMany(c => c.Mensagems)
-                            .Where(m => m.Destinatario.Id == id)
+                            .SelectMany(c => c.Mensagens)
+                            .Where(m => m.Destinatario.Id == id || m.Remetente.Id == id)
                             .OrderByDescending(m => m.Horario)
                             .FirstOrDefault().Conteudo,
                     DataUltimaMensagem = u.Conversas
-                            .SelectMany(c => c.Mensagems)
-                            .Where(m => m.Destinatario.Id == id)
+                            .SelectMany(c => c.Mensagens)
+                            .Where(m => m.Destinatario.Id == id || m.Remetente.Id == id)
                             .OrderByDescending(m => m.Horario)
                             .FirstOrDefault().Horario,
-                    Id = u.Id,
+                    ConversaId = u.Conversas
+                            .FirstOrDefault(c => c.Interlocutores.Any(i => i.Id == id)).Id,
+                    UsuarioId = u.Id,
                     Nome = u.Nome
                 })
                 .ToList();
@@ -39,7 +46,7 @@ namespace Mensageiro.Repositorios.SqlServer
         public List<MensagemReadModel> ObterMensagens(string userIdentity, string destinatarioId)
         {
             return contexto.Conversas
-                .SelectMany(c => c.Mensagems)
+                .SelectMany(c => c.Mensagens)
                 .Where(m => m.Remetente.Id == userIdentity && m.Destinatario.Id == destinatarioId
                     || m.Remetente.Id == destinatarioId && m.Destinatario.Id == userIdentity)
                 .OrderBy(c => c.Horario)

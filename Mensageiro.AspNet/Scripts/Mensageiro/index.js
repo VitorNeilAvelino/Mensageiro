@@ -4,21 +4,27 @@
         contatosViewModel.contatos().map(contato => contato.selecionado(false));
         contato.selecionado(true);
 
-        destinatarioViewModel.destinatarioId = contato.id;
+        destinatarioViewModel.destinatarioId = contato.usuarioId;
         destinatarioViewModel.destinatarioNome = contato.nome;
+        destinatarioViewModel.conversaId = contato.conversaId;
 
         const destinatarioDiv = $("#destinatario")[0];
         ko.cleanNode(destinatarioDiv);
         ko.applyBindings(destinatarioViewModel, destinatarioDiv);
 
+        const mensagemInput = $("#mensagem");
+        mensagemInput.val("");
+        mensagemInput.focus();
+
         mensagensViewModel.mensagens([]);
-        obterConversa(contato.id);
+        obterConversa(contato.usuarioId);
     }
 };
 
 const destinatarioViewModel = {
     destinatarioNome: "",
-    destinatarioId: ""
+    destinatarioId: "",
+    conversaId: null
 };
 
 const mensagensViewModel = {
@@ -35,6 +41,10 @@ function atualizarContatos() {
     })
         .then(function (response) {
             response.map(contato => contato.selecionado = ko.observable(false));
+            //ToDo: tratar horário em view-model na Aplicacao.
+            response.map(contato => contato.dataUltimaMensagem !== null ?
+                contato.dataUltimaMensagem = timeFormat(contato.dataUltimaMensagem) :
+                null);
 
             contatosViewModel.contatos(response);
             ko.applyBindings(contatosViewModel, $("#contatosDiv")[0]);
@@ -66,6 +76,26 @@ function obterConversa(destinatarioId) {
         })
         .catch(function (erro) { /*Tratamento do erro*/ });
 }
+
+$("#mensagemForm").submit(function (e) {
+    const data = {
+        mensagem: $("#mensagem").val(),
+        conversaId: destinatarioViewModel.conversaId,
+        remetenteId: usuarioId,
+        destinatarioId: destinatarioViewModel.destinatarioId
+    };
+
+    $.ajax({
+        type: "POST",
+        url: "mensageiro/mensagens",
+        data: data,
+        success: function (response) {
+            alert(data);
+        }
+    });
+
+    e.preventDefault();
+});
 
 function timeFormat(dataString) {
     const data = new Date(dataString);

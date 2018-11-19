@@ -37,13 +37,13 @@
                         <div class="row sideBar" data-bind="foreach: contatos" id="contatosDiv">
                             <div class="contato-box sideBar-body" data-bind="click: $parent.exibirDestinatario, css: {contatoSelecionado: selecionado}">
                                 <div class="box-avatar avatar-icon">
-                                    <img data-bind="attr:{src: 'https://api.adorable.io/avatars/50/' + id}">
+                                    <img data-bind="attr:{src: 'https://api.adorable.io/avatars/50/' + usuarioId}">
                                 </div>
                                 <div class="box-nome sideBar-name">
                                     <span class="name-meta" data-bind="text: nome" />
                                 </div>
                                 <div class="box-horario sideBar-time">
-                                    <span class="time-meta pull-right" data-bind="text: $data.horarioUltimaMensagem" />
+                                    <span class="time-meta pull-right" data-bind="text: $data.dataUltimaMensagem" />
                                 </div>
                                 <div class="box-mensagem">
                                     <span class="mensagem-meta" data-bind="text: conteudoUltimaMensagem" />
@@ -76,12 +76,16 @@
                         </div>
                     </div>
                     <div class="row reply">
-                        <div class="col-md-11 col-xs-9 reply-main">
-                            <input type="text" class="form-control" id="comment" />
-                        </div>
-                        <div class="col-md-1 col-xs-1 reply-send">
-                            <i class="fa fa-send fa-2x" aria-hidden="true"></i>
-                        </div>
+                        <form id="mensagemForm">
+                            <div class="col-md-12 col-xs-9 reply-main">
+                                <input type="text" class="form-control" id="mensagem" name="mensagem" />
+                            </div>
+                            @*<div class="col-md-1 col-xs-1 reply-send">
+                                <button type="submit">
+                                    <i class="fa fa-send fa-2x" aria-hidden="true"></i>
+                                </button>
+                            </div>*@
+                        </form>
                     </div>
                 </div>
             </div>

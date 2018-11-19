@@ -9,5 +9,6 @@ namespace Mensageiro.Dominio.Entidades
         public DateTime Horario { get; set; } = DateTime.Now;
         public virtual Usuario Remetente { get; set; }
         public virtual Usuario Destinatario { get; set; }
+        public virtual Conversa Conversa { get; set; }
     }
 }

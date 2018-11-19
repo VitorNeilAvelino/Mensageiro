@@ -36,6 +36,6 @@ namespace Mensageiro.Dominio.Entidades
 
         public string Nome { get; set; }
 
-        public List<Conversa> Conversas { get; set; }
+        public virtual List<Conversa> Conversas { get; set; }
     }
 }

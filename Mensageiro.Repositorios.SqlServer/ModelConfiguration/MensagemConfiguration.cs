@@ -11,11 +11,13 @@ namespace Mensageiro.Repositorios.SqlServer.ModelConfiguration
                 .HasMaxLength(65536)
                 .IsRequired();
 
-            HasRequired(m => m.Destinatario)
-                .WithOptional();
+            //HasRequired(m => m.Destinatario)
+            //    .WithRequiredDependent();
 
-            HasRequired(m => m.Remetente)
-                .WithOptional();
+            //HasRequired(m => m.Remetente)
+            //    .WithRequiredDependent();
+
+            HasRequired(m => m.Conversa);                
         }
     }
 }
