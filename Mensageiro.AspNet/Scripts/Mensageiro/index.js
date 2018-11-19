@@ -89,8 +89,9 @@ $("#mensagemForm").submit(function (e) {
         type: "POST",
         url: "mensageiro/mensagens",
         data: data,
-        success: function (response) {
-            alert(data);
+        success: function () {
+            obterConversa(data.destinatarioId);
+            atualizarContatos();
         }
     });
 
