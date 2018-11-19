@@ -71,10 +71,8 @@ function obterConversa(destinatarioId) {
             response.map(mensagem => mensagem.horario = timeFormat(mensagem.horario));
 
             mensagensViewModel.mensagens(response);
-
             ko.applyBindings(mensagensViewModel, $("#conversation")[0]);
-        })
-        .catch(function (erro) { /*Tratamento do erro*/ });
+        });
 }
 
 $("#mensagemForm").submit(function (e) {
@@ -86,10 +84,11 @@ $("#mensagemForm").submit(function (e) {
     };
 
     $.ajax({
-        type: "POST",
-        url: "mensageiro/mensagens",
+        type: "post",
+        url: "/mensageiro/mensagens",
         data: data,
-        success: function () {
+        success: function (response) {
+            $("#mensagem").val("");
             obterConversa(data.destinatarioId);
             atualizarContatos();
         }
