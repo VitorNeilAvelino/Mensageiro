@@ -1,4 +1,5 @@
-﻿using Mensageiro.AspNet.Models;
+﻿using Mensageiro.AspNet.App_Start;
+using Mensageiro.AspNet.Models;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -15,6 +16,8 @@ namespace Mensageiro.AspNet
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             new IdentityDbContext().Database.Initialize(false);
+
+            AutoMapperConfig.Configure();
         }
     }
 }

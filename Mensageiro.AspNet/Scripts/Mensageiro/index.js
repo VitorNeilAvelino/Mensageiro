@@ -41,11 +41,6 @@ function atualizarContatos() {
     })
         .then(function (response) {
             response.map(contato => contato.selecionado = ko.observable(false));
-            //ToDo: tratar horário em view-model na Aplicacao.
-            response.map(contato => contato.dataUltimaMensagem !== null ?
-                contato.dataUltimaMensagem = timeFormat(contato.dataUltimaMensagem) :
-                null);
-
             contatosViewModel.contatos(response);
             ko.applyBindings(contatosViewModel, $("#contatosDiv")[0]);
         })
@@ -67,9 +62,6 @@ function obterConversa(destinatarioId) {
         data: { destinatarioId }
     })
         .then(function (response) {
-            response.map(mensagem => mensagem.ehDestinatario = mensagem.destinatarioId === usuarioId);
-            response.map(mensagem => mensagem.horario = timeFormat(mensagem.horario));
-
             mensagensViewModel.mensagens(response);
             ko.applyBindings(mensagensViewModel, $("#conversation")[0]);
         });
@@ -96,16 +88,3 @@ $("#mensagemForm").submit(function (e) {
 
     e.preventDefault();
 });
-
-function timeFormat(dataString) {
-    const data = new Date(dataString);
-
-    hours = formatTwoDigits(data.getHours());
-    minutes = formatTwoDigits(data.getMinutes());
-
-    return hours + ":" + minutes;
-}
-
-function formatTwoDigits(n) {
-    return n < 10 ? '0' + n : n;
-}

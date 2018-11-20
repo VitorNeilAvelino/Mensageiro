@@ -1,11 +1,9 @@
-﻿using Mensageiro.Dominio.Entidades;
+﻿using AutoMapper;
+using Mensageiro.Aplicacao.ViewModels;
+using Mensageiro.Dominio.Entidades;
 using Mensageiro.Dominio.Interfaces;
 using Mensageiro.Repositorios.SqlServer;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mensageiro.Aplicacao
 {
@@ -23,9 +21,16 @@ namespace Mensageiro.Aplicacao
             db = new MensageiroUnitOfWork();
         }
 
-        public List<MensagemReadModel> ObterMensagens(string userIdentity, string destinatarioId)
+        public List<MensagemViewModel> ObterMensagens(string remetenteId, string destinatarioId)
         {
-            return db.Conversas.ObterMensagens(userIdentity, destinatarioId);
+            var mensagensReadModel = db.Conversas.ObterMensagens(remetenteId, destinatarioId);
+
+            var mensagensViewModel = Mapper
+                .Map<List<MensagemReadModel>, List<MensagemViewModel>>(mensagensReadModel);
+
+            mensagensViewModel.ForEach(m => m.EhDestinatario = m.DestinatarioId == remetenteId);
+
+            return mensagensViewModel;
         }
 
         public void AdicionarMensagem(string conteudo, int? conversaId, string remetenteId, string destinatarioId)

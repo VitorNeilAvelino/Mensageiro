@@ -1,4 +1,6 @@
-﻿using Mensageiro.Dominio.Entidades;
+﻿using AutoMapper;
+using Mensageiro.Aplicacao.ViewModels;
+using Mensageiro.Dominio.Entidades;
 using Mensageiro.Dominio.Interfaces;
 using Mensageiro.Repositorios.SqlServer;
 using System;
@@ -20,9 +22,11 @@ namespace Mensageiro.Aplicacao
             db = new MensageiroUnitOfWork();
         }
 
-        public List<ContatoReadModel> ObterContatos(string id)
+        public List<ContatoViewModel> ObterContatos(string id)
         {
-            return db.Usuarios.ObterContatos(id);
+            var contatosReadModel = db.Usuarios.ObterContatos(id);
+
+            return Mapper.Map<List<ContatoReadModel>, List<ContatoViewModel>>(contatosReadModel);
         }
 
         public void Dispose()
