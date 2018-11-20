@@ -1,5 +1,6 @@
 ﻿using Mensageiro.Aplicacao;
 using Mensageiro.AspNet.Helpers;
+using Mensageiro.AspNet.Hubs;
 using System.Web.Mvc;
 
 namespace Mensageiro.AspNet.Controllers
@@ -9,6 +10,7 @@ namespace Mensageiro.AspNet.Controllers
     {
         private readonly UsuarioAplicacao usuarioAplicacao = new UsuarioAplicacao();        
         private readonly ConversaAplicacao conversaAplicacao = new ConversaAplicacao();
+        private readonly MensageiroHub mensageiroHub = new MensageiroHub();
 
         public ActionResult Index()
         {
@@ -29,9 +31,9 @@ namespace Mensageiro.AspNet.Controllers
 
         [HttpPost]
         [ActionName("Mensagens")]
-        public void GravarMensagem(string mensagem, int? conversaId, string remetenteId, string destinatarioId)
+        public void GravarMensagem(string mensagem, int? conversaId, string destinatarioId)
         {
-            conversaAplicacao.AdicionarMensagem(mensagem, conversaId, remetenteId, destinatarioId);
+            conversaAplicacao.AdicionarMensagem(mensagem, conversaId, User.Identity.ObterId(), destinatarioId);
         }
 
         protected override void Dispose(bool disposing)

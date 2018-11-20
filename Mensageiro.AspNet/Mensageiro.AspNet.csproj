@@ -217,7 +217,7 @@
     <Compile Include="Helpers\IdentityHelper.cs" />
     <Compile Include="Helpers\JsonCamelCaseHelper.cs" />
     <Compile Include="Helpers\JsonCamelCaseResult.cs" />
-    <Compile Include="Hubs\UsuarioHub.cs" />
+    <Compile Include="Hubs\MensageiroHub.cs" />
     <Compile Include="Migrations\201810110102507_Inicial.cs" />
     <Compile Include="Migrations\201810110102507_Inicial.Designer.cs">
       <DependentUpon>201810110102507_Inicial.cs</DependentUpon>

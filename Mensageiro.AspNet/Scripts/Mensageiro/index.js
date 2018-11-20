@@ -1,4 +1,16 @@
-﻿const contatosViewModel = {
+﻿ko.extenders.scrollFollow = function (target, selector) {
+    target.subscribe(function (newval) {
+        var el = document.querySelector(selector);
+
+        if (el.scrollTop === el.scrollHeight - el.clientHeight) {
+            setTimeout(function () { el.scrollTop = el.scrollHeight - el.clientHeight; }, 0);
+        }
+    });
+
+    return target;
+};
+
+const contatosViewModel = {
     contatos: ko.observableArray(),
     exibirDestinatario: function (contato) {
         contatosViewModel.contatos().map(contato => contato.selecionado(false));
@@ -28,12 +40,12 @@ const destinatarioViewModel = {
 };
 
 const mensagensViewModel = {
-    mensagens: ko.observableArray()
+    mensagens: ko.observableArray().extend({ scrollFollow: '#conversation' })
 };
 
 atualizarContatos();
 
-conectarUsuarioHub();
+conectarMensageiroHub();
 
 function atualizarContatos() {
     $.ajax({
@@ -47,9 +59,9 @@ function atualizarContatos() {
         .catch(function (erro) { /*Tratamento do erro*/ });
 }
 
-function conectarUsuarioHub() {
+function conectarMensageiroHub() {
     const connection = $.hubConnection();
-    const hub = connection.createHubProxy("UsuarioHub");
+    const hub = connection.createHubProxy("MensageiroHub");
 
     hub.on("atualizarContatos", atualizarContatos);
 
@@ -71,7 +83,6 @@ $("#mensagemForm").submit(function (e) {
     const data = {
         mensagem: $("#mensagem").val(),
         conversaId: destinatarioViewModel.conversaId,
-        remetenteId: usuarioId,
         destinatarioId: destinatarioViewModel.destinatarioId
     };
 
