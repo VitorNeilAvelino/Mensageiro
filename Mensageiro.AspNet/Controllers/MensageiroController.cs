@@ -34,6 +34,10 @@ namespace Mensageiro.AspNet.Controllers
         public void GravarMensagem(string mensagem, int? conversaId, string destinatarioId)
         {
             conversaAplicacao.AdicionarMensagem(mensagem, conversaId, User.Identity.ObterId(), destinatarioId);
+
+            var destinatario = usuarioAplicacao.Obter(destinatarioId);
+
+            mensageiroHub.EnviarMensagem(destinatario.UserName);
         }
 
         protected override void Dispose(bool disposing)

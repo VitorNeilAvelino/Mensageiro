@@ -59,11 +59,17 @@ function atualizarContatos() {
         .catch(function (erro) { /*Tratamento do erro*/ });
 }
 
+function receberMensagem(remetenteId) {
+    obterConversa(remetenteId);
+    atualizarContatos();
+}
+
 function conectarMensageiroHub() {
     const connection = $.hubConnection();
     const hub = connection.createHubProxy("MensageiroHub");
 
     hub.on("atualizarContatos", atualizarContatos);
+    hub.on("receberMensagem", receberMensagem);
 
     connection.start();
 }

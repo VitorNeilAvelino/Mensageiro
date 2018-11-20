@@ -12,5 +12,10 @@ namespace Mensageiro.AspNet.Hubs
         {
             contextoHub.Clients.All.atualizarContatos();
         }
+
+        public void EnviarMensagem(string userName)
+        {
+            contextoHub.Clients.User(userName).receberMensagem(HttpContext.Current.User.Identity.ObterId());
+        }
     }
 }
