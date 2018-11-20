@@ -29,6 +29,11 @@ namespace Mensageiro.Aplicacao
             return Mapper.Map<List<ContatoReadModel>, List<ContatoViewModel>>(contatosReadModel);
         }
 
+        public Usuario Obter(string id)
+        {
+            return db.Usuarios.Obter(id);
+        }
+
         public void Dispose()
         {
             db.Dispose();
