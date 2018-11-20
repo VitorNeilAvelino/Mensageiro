@@ -15,7 +15,7 @@ namespace Mensageiro.AspNet.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private readonly UsuarioHub usuarioHub = new UsuarioHub();
+        private readonly MensageiroHub usuarioHub = new MensageiroHub();
 
         public AccountController()
         {
@@ -152,7 +152,7 @@ namespace Mensageiro.AspNet.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
-                    usuarioHub.Registrar();
+                    usuarioHub.RegistrarUsuario();
 
                     return RedirectToAction("Index", "Home");
                 }
